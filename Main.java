@@ -37,7 +37,7 @@ public class Main {
 			return "";
 		}
 
-		int[] pass = new int[26];
+		boolean[] pass = new boolean[26];
 		Set<Character> alphabet = new LinkedHashSet<>();
 
 		smallestKeySet.forEach(e -> dfs(e, alphabet, pass, map));
@@ -48,12 +48,12 @@ public class Main {
 	}
 
 
-	private static void dfs(Character ch, Set<Character> alphabet, int[] pass, Map<Character, LinkedHashSet<Character>> map) {
-		if (pass[ch - 'a'] == 1) {
+	private static void dfs(Character ch, Set<Character> alphabet, boolean[] pass, Map<Character, LinkedHashSet<Character>> map) {
+		if (pass[ch - 'a']) {
 			return;
 		}
 		// mark
-		pass[ch - 'a'] = 1;
+		pass[ch - 'a'] = true;
 		if (map.containsKey(ch)) {
 			for (Character v : map.get(ch)) {
 				dfs(v, alphabet, pass, map);
