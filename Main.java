@@ -52,6 +52,8 @@ public class Main {
 		if (pass[ch - 'a'] == 1) {
 			return;
 		}
+		// mark
+		pass[ch - 'a'] = 1;
 		if (map.containsKey(ch)) {
 			for (Character v : map.get(ch)) {
 				dfs(v, alphabet, pass, map);
